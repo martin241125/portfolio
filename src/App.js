@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import About from './components/About';
+import Landing from './components/Landing'
+import Contact from './components/Contact'
+import './App.css'
+import Toggle from './components/Toggle';
+import { useContext } from 'react';
+import { ThemeContext } from './context/contex'
+
 
 function App() {
+
+ const theme = useContext(ThemeContext)
+ const darkMode = theme.state.darkMode;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+   
+    <div style={{backgroundColor: darkMode ? "#222" : "white",
+    color: darkMode && "white", }}>
+    
+      <Landing />
+      <About />
+      <Contact />
+      <Toggle />
+    
+   
+      
+   
+     
     </div>
   );
 }
